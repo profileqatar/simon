@@ -130,7 +130,7 @@
             background-size: cover;
         }
 
-        /* Reduced Golden Border Circle and Padding Configuration */
+        /* Slimmer padding and compact border circle matching requests */
         .avatar-container {
             position: relative;
             width: 96px;
@@ -606,7 +606,7 @@
         
         <section class="profile-hero">
             <div class="avatar-container">
-                <img id="profile-display-img"1781452425978.png" alt="Simon D'Silva">
+                <img id="profile-display-img" src="1781511811974.jpeg" alt="Simon D'Silva">
                 <div class="verified-badge"><i class="fa-solid fa-check"></i></div>
             </div>
             
@@ -784,7 +784,6 @@
             document.documentElement.setAttribute('lang', lang);
             langToggleBtn.innerText = lang === 'en' ? 'عربي' : 'EN';
 
-            // Static translations mapping
             document.getElementById('profile-name').innerText = translations[lang].name;
             document.getElementById('profile-title').innerText = translations[lang].title;
             document.getElementById('meta-location').innerText = translations[lang].location;
@@ -795,7 +794,6 @@
             document.getElementById('vcard-popup-download').innerText = translations[lang]["vcard_save"];
             document.getElementById('vcard-popup-close').innerText = translations[lang]["vcard_cancel"];
 
-            // Attribute injection translate loops
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const translationKey = element.getAttribute('data-i18n');
                 if (translations[lang][translationKey]) {
@@ -867,7 +865,7 @@
 
 
         /* ==========================================================================
-           4. NFC STARTUP ANALYTICS TRACKER HOOK (Consoles logs view events clearly)
+           4. NFC STARTUP ANALYTICS TRACKER HOOK
            ========================================================================== */
         let hasVcardBeenDownloaded = false;
 
@@ -917,7 +915,7 @@
 
         /* ==========================================================================
            6. CORE PROFILE INTERACTIONS (vCard Generation, Web Sharing & Accordion)
-           ========================================================================== */
+           ========================================================================= */
         const trigger = document.getElementById('services-trigger');
         const panel = document.getElementById('services-panel');
 
@@ -957,7 +955,7 @@
             modalOverlay.classList.remove('visible'); 
             logStartupAnalytics('vCard Download Started', 'User clicked and downloaded the vCard file.');
             
-            const imageUrl = '1781452425978.png?auto=format&fit=crop&q=80&w=150';
+            const imageUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150';
             let base64PhotoText = '';
             
             try {
