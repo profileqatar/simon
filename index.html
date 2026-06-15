@@ -947,12 +947,14 @@
             }
         });
 
+        /* --- FIXED FIXED DOWNLOAD PROFILE IMAGE SCRIPT MECHANICS --- */
         async function triggerVcardDownload() {
             hasVcardBeenDownloaded = true;
             modalOverlay.classList.remove('visible'); 
             logStartupAnalytics('vCard Download Started', 'User clicked and downloaded the vCard file.');
             
-            const imageUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150';
+            // Uses your absolute repository route path for highest cross-platform mobile compatibility
+            const imageUrl = 'https://profileqatar.github.io/simon/1781452425978.png';
             let base64PhotoText = '';
             
             try {
@@ -963,7 +965,9 @@
                     reader.onloadend = () => resolve(reader.result.split(',')[1]);
                     reader.readAsDataURL(blob);
                 });
-            } catch (e) {}
+            } catch (e) {
+                console.error("Image asset conversion error fallback triggered:", e);
+            }
 
             const vcardLines = [
                 "BEGIN:VCARD",
@@ -976,7 +980,13 @@
                 "EMAIL;TYPE=PREF,INTERNET:simondsilva@gmail.com",
                 "URL:https://orbithomesrealestate.com"
             ];
-            if (base64PhotoText) vcardLines.push("PHOTO;TYPE=JPEG;ENCODING=b:" + base64PhotoText);
+            
+            // Checks if base64 transformation script completed successfully or injects the absolute url source fallback line
+            if (base64PhotoText) {
+                vcardLines.push("PHOTO;TYPE=PNG;ENCODING=b:" + base64PhotoText);
+            } else {
+                vcardLines.push("PHOTO;VALUE=URL:https://profileqatar.github.io/simon/1781452425978.png");
+            }
             vcardLines.push("END:VCARD");
 
             const blobFile = new Blob([vcardLines.join("\r\n")], { type: 'text/vcard;charset=utf-8;' });
