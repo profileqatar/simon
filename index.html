@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon D'Silva - Premium Profile</title>
+    <title>Simon D'Silva - Digital Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- HIGH-END UI DESIGN SYSTEM VARIABLES --- */
+        /* --- CSS DESIGN VARIABLES (THEMING & DESIGN SYSTEM) --- */
         :root {
-            --bg-body: #0a0b0d;
-            --bg-panel: #111217;
-            --bg-card: #060709;
-            --bg-element: #14161d;
-            --bg-element-hover: #1f222e;
+            --bg-body: #0d0e12;
+            --bg-card: #07080a;
+            --bg-element: #16181d;
+            --bg-element-hover: #20242c;
+            --bg-dropdown: #101114;
             --text-main: #ffffff;
-            --text-muted: #8b92a5;
+            --text-muted: #98a0a6;
             --border-color: rgba(255, 255, 255, 0.05);
-            --accent-blue: #0084ff;
-            --accent-blue-hover: #135cb1;
-            
-            /* Premium Metallic Moving Gold Config */
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --gold-glow: rgba(212, 175, 55, 0.35);
+            --accent-blue: #3897f1;
+            --btn-primary: #1b74e4;
+            --btn-primary-hover: #155cb4;
+            --shadow-wrapper: rgba(0, 0, 0, 0.8);
+            --overlay-bg: rgba(4, 5, 6, 0.85);
+            --modal-bg: #16181d;
         }
 
         [data-theme="light"] {
             --bg-body: #f4f6f9;
-            --bg-panel: #ffffff;
-            --bg-card: #f8f9fa;
-            --bg-element: #edf0f5;
-            --bg-element-hover: #e1e5f0;
+            --bg-card: #ffffff;
+            --bg-element: #f0f2f5;
+            --bg-element-hover: #e4e6eb;
+            --bg-dropdown: #f9fafb;
             --text-main: #1c1e21;
             --text-muted: #65676b;
             --border-color: rgba(0, 0, 0, 0.08);
             --accent-blue: #1877f2;
-            --accent-blue-hover: #115cb3;
-            
-            --gold-gradient: linear-gradient(45deg, #a67c1e, #fcf6ba, #b38728, #fbf5b7, #8a640f);
-            --gold-glow: rgba(186, 142, 35, 0.2);
+            --btn-primary: #1877f2;
+            --btn-primary-hover: #135cb1;
+            --shadow-wrapper: rgba(0, 0, 0, 0.15);
+            --overlay-bg: rgba(0, 0, 0, 0.4);
+            --modal-bg: #ffffff;
         }
 
+        /* Global & Layout Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
         }
 
         body {
@@ -55,135 +57,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
-        /* --- DUAL PANEL CORE CONTAINER --- */
-        .dashboard-container {
-            display: flex;
-            flex-direction: row;
-            gap: 40px;
-            width: 100%;
-            max-width: 920px;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        /* --- LEFT COLUMN: ABOUT & FEATURES PANEL --- */
-        .left-info-panel {
-            flex: 1;
-            background-color: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .panel-section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-blue);
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .about-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        /* Business Static Navigation list */
-        .business-list {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .business-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 16px;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.92rem;
-        }
-        .business-row:last-child { border-bottom: none; }
-        .business-row:hover { background: var(--bg-element-hover); }
-        .business-row-left { display: flex; align-items: center; gap: 12px; }
-        .business-row-left i { color: var(--text-muted); width: 20px; text-align: center; }
-        .business-row .fa-chevron-right { font-size: 0.75rem; color: var(--text-muted); }
-
-        /* Features Bullet Stack List */
-        .features-stack {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 16px;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
-        .feature-item:last-child { border-bottom: none; }
-        .feature-item i { color: var(--accent-blue); width: 20px; text-align: center; }
-
-        .left-panel-btn {
-            width: 100%;
-            height: 48px;
-            background: var(--accent-blue);
-            color: #ffffff;
-            border: none;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-        .left-panel-btn:hover { background: var(--accent-blue-hover); }
-
-        /* --- RIGHT COLUMN: MOCK PHONE MESH LAYOUT --- */
+        /* Responsive Mobile Container Layout */
         .phone-wrapper {
             width: 100%;
-            max-width: 390px;
+            max-width: 412px;
             background-color: var(--bg-card);
-            border-radius: 44px;
+            border-radius: 40px;
             border: 1px solid var(--border-color);
             padding: 24px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 30px 70px var(--shadow-wrapper);
             position: relative;
+            overflow: hidden;
         }
 
-        /* Global Header Toggles Layout */
+        /* --- CONTROLS HEADER BAR (THEME & LANGUAGE TOGGLES) --- */
         .controls-header {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            right: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
             z-index: 10;
         }
 
+        /* Language Toggle Switcher Button Style */
         .lang-btn {
             background: var(--bg-element);
             border: 1px solid var(--border-color);
@@ -193,6 +97,7 @@
             cursor: pointer;
             font-size: 0.78rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
         .lang-btn:hover { background: var(--bg-element-hover); }
 
@@ -200,93 +105,119 @@
             background: var(--bg-element);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
+        .theme-btn:hover { background: var(--bg-element-hover); }
 
-        /* --- PHONE PROFILE SECTION --- */
+        /* --- PREMIUM HERO SECTION WITH MESH BACKGROUND --- */
         .profile-hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-bottom: 24px;
+            margin: -24px -24px 25px -24px;
+            padding: 55px 24px 20px 24px;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(7, 8, 10, 0.1) 0%, var(--bg-card) 95%), 
+                        url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600') no-repeat top center;
+            background-size: cover;
         }
 
-        /* Tightened Compact Luxury Frame Aura */
+        /* Reduced Golden Border Circle and Padding Configuration */
         .avatar-container {
             position: relative;
-            width: 104px;
-            height: 104px;
+            width: 96px;
+            height: 96px;
             margin-bottom: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .gold-ring-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            animation: spinRing 4s linear infinite;
-            box-shadow: 0 0 15px var(--gold-glow);
-            z-index: 1;
-        }
-
-        @keyframes spinRing {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            z-index: 2;
         }
 
         .avatar-container img {
-            width: 96px;
-            height: 96px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid var(--bg-card);
-            z-index: 2;
-            position: relative;
+            border: 2.5px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
         }
 
+        /* Verified Tick Badge Styling */
         .verified-badge {
             position: absolute;
-            bottom: 2px;
-            right: 4px;
-            background-color: var(--accent-blue);
+            bottom: 1px;
+            right: 2px;
+            background-color: #0084ff;
             color: #ffffff;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             border: 2px solid var(--bg-card);
             z-index: 3;
         }
-        [dir="rtl"] .verified-badge { right: auto; left: 4px; }
+        /* Fix verified position for RTL orientation */
+        [dir="rtl"] .verified-badge {
+            right: auto;
+            left: 2px;
+        }
 
         .profile-hero h1 {
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             font-weight: 600;
+            letter-spacing: -0.3px;
             margin-bottom: 4px;
+            z-index: 2;
+        }
+
+        /* --- DYNAMIC STATUS INDICATOR STYLING --- */
+        .status-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-element);
+            border: 1px solid var(--border-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            z-index: 2;
+            color: var(--text-main);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #4cd964;
+        }
+
+        .status-dot.pulse {
+            animation: statusPulse 1.8s infinite ease-in-out;
+        }
+
+        @keyframes statusPulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0.6); }
+            70% { box-shadow: 0 0 0 6px rgba(76, 217, 100, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0); }
         }
 
         .profile-title {
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--accent-blue);
             font-weight: 500;
             margin-bottom: 14px;
+            z-index: 2;
         }
 
         .meta-info-list {
@@ -295,67 +226,206 @@
             gap: 6px;
             font-size: 0.85rem;
             color: var(--text-muted);
+            z-index: 2;
         }
-        .meta-item { display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .meta-item i { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* --- HORIZONTAL ACTION MATRIX --- */
-        .quick-actions-grid {
+        .meta-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .meta-item i {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+        }
+
+        /* Flip back the directional icons for layout uniformity when reading in RTL */
+        [dir="rtl"] .meta-item i.fa-location-arrow {
+            transform: scaleX(-1);
+        }
+
+        /* --- QUICK ACTION PILLS (ROW) --- */
+        .quick-actions-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 8px;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
-        .action-square {
+        .action-pill {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: var(--bg-element);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            aspect-ratio: 1 / 1;
+            border-radius: 14px;
+            height: 64px;
             color: var(--text-main);
             text-decoration: none;
         }
-        .action-square:hover { background: var(--bg-element-hover); transform: translateY(-2px); }
-        .action-square i { font-size: 1.15rem; margin-bottom: 5px; }
-        .action-square span { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+        .action-pill:hover { background: var(--bg-element-hover); }
 
-        /* --- PHONE SOCIAL MEDIA MATRIX GRID --- */
-        .social-heading {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 14px;
+        .action-pill i {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
+        .action-pill span {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-heading {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-left: 2px;
+        }
+        [dir="rtl"] .section-heading {
+            padding-left: 0;
+            padding-right: 2px;
+            letter-spacing: 0;
+        }
+
+        /* --- STYLISH NAVIGATION LISTS (BUSINESS) --- */
+        .link-list-group {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-element);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        [dir="rtl"] .list-item { text-align: right; }
+        .list-item:last-of-type { border-bottom: none; }
+        .list-item:hover { background: var(--bg-element-hover); }
+
+        .list-item-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .list-item-left i {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            width: 20px;
+            text-align: center;
+        }
+
+        .list-item .fa-chevron-right {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        /* Correct Chevron arrow direction configuration based on application flow */
+        [dir="rtl"] .list-item .fa-chevron-right {
+            transform: rotate(180deg);
+        }
+        .list-item.active .fa-chevron-right {
+            transform: rotate(90deg) !important;
+            color: var(--accent-blue);
+        }
+
+        /* --- INTERACTIVE SERVICES BOX PANEL --- */
+        .services-dropdown-panel {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--bg-dropdown);
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .services-panel-content {
+            padding: 18px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .service-tag-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+        .service-tag-item:hover { border-color: var(--accent-blue); }
+
+        .service-tag-item i {
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* --- SOCIAL MEDIA GRID (4x4) --- */
         .social-media-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            margin-bottom: 28px;
+            margin-bottom: 35px;
         }
 
         .social-box {
             background: var(--bg-element);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            height: 72px;
+            border-radius: 16px;
+            height: 76px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
         }
-        .social-box:hover { transform: translateY(-3px); background: var(--bg-element-hover); }
-        .social-box i { font-size: 1.55rem; margin-bottom: 5px; }
-        .social-box span { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+        .social-box:hover {
+            transform: translateY(-3px);
+            background: var(--bg-element-hover);
+        }
 
-        /* Modern App Hex Match Palette colors */
+        .social-box i {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+
+        .social-box span {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Brand Colors */
         .social-box.instagram i { color: #e1306c; }
         .social-box.facebook i { color: #1877f2; }
         .social-box.tiktok i { color: var(--text-main); }
@@ -364,22 +434,34 @@
         .social-box.linkedin i { color: #0077b5; }
         .social-box.telegram i { color: #26a5e4; }
         .social-box.snapchat i { color: #fffc00; }
+        .social-box.discord i { color: #5865f2; }
+        .social-box.threads i { color: var(--text-main); }
+        .social-box.pinterest i { color: #bd081c; }
+        .social-box.reddit i { color: #ff4500; }
 
-        /* Phone CTAs Footers */
-        .phone-cta-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        /* Light theme adjustments for TikTok/X icons */
+        [data-theme="light"] .social-box.tiktok i,
+        [data-theme="light"] .social-box.twitter i,
+        [data-theme="light"] .social-box.threads i {
+            color: #1c1e21;
         }
 
-        .btn-phone-primary {
+        /* --- ACTION CTAS --- */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary-blue {
             width: 100%;
-            height: 46px;
-            background: var(--accent-blue);
+            height: 50px;
+            background: var(--btn-primary);
             color: white;
             border: none;
             border-radius: 12px;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: flex;
             justify-content: center;
@@ -387,16 +469,16 @@
             gap: 8px;
             cursor: pointer;
         }
-        .btn-phone-primary:hover { background: var(--accent-blue-hover); }
+        .btn-primary-blue:hover { background: var(--btn-primary-hover); }
 
-        .btn-phone-outline {
+        .btn-outline-dark {
             width: 100%;
-            height: 44px;
+            height: 50px;
             background: transparent;
             color: var(--text-main);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: flex;
             justify-content: center;
@@ -404,256 +486,512 @@
             gap: 8px;
             cursor: pointer;
         }
-        .btn-phone-outline:hover { background: var(--bg-element-hover); }
+        .btn-outline-dark:hover { background: var(--bg-element-hover); }
 
-        /* --- RESPONSIVE ADAPTATION CORRECTION --- */
-        @media (max-width: 820px) {
-            .dashboard-container { flex-direction: column; align-items: center; gap: 30px; }
-            .left-info-panel { width: 100%; max-width: 390px; }
+        /* --- PREMIUM CENTERED SCREEN MODAL REMINDER POP-UP --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
-        @media (max-width: 420px) {
+
+        .modal-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .vcard-popup-reminder {
+            width: 90%;
+            max-width: 340px;
+            background: var(--modal-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.visible .vcard-popup-reminder {
+            transform: scale(1);
+        }
+
+        .vcard-popup-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(56, 151, 241, 0.1);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .vcard-popup-text {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .modal-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .vcard-popup-btn {
+            background: var(--btn-primary);
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            height: 46px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .vcard-popup-btn:hover { background: var(--btn-primary-hover); }
+
+        .vcard-popup-close-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            width: 100%;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .vcard-popup-close-btn:hover { color: var(--text-main); }
+
+        @media (max-width: 480px) {
             body { padding: 0; background-color: var(--bg-card); }
-            .dashboard-container { gap: 0; }
-            .left-info-panel { display: none; }
-            .phone-wrapper { border-radius: 0; border: none; min-height: 100vh; }
+            .phone-wrapper { border-radius: 0; border: none; min-height: 100vh; box-shadow: none; }
+            .profile-hero { margin: -50px -20px 25px -20px; padding: 65px 20px 20px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
+    <div class="phone-wrapper">
         
-        <aside class="left-info-panel">
-            <div>
-                <h2 id="panel-heading-about" class="panel-section-title">About Me</h2>
-                <p id="panel-about-desc" class="about-text">Mr. Simon is the professional real estate broker of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.</p>
-            </div>
-
-            <div>
-                <h2 id="panel-heading-biz" class="panel-section-title">Services</h2>
-                <div class="business-list">
-                    <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="portfolio">Residential Sales</span></div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                    <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-city"></i> <span data-i18n="services">Luxury Properties & Villas</span></div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                    <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-building"></i> <span data-i18n="company-profile">Commercial Leasing</span></div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                    <a href="#" class="business-row">
-                        <div class="business-row-left"><i class="fa-regular fa-file-pdf"></i> <span data-i18n="company-profile-pdf">Company Profile (PDF)</span></div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <h2 id="panel-heading-feats" class="panel-section-title">Features</h2>
-                <div class="features-stack">
-                    <div class="feature-item"><i class="fa-regular fa-address-book"></i> <span data-i18n="feat-1">Save Contact Instantly</span></div>
-                    <div class="feature-item"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="feat-2">Open WhatsApp Chat</span></div>
-                    <div class="feature-item"><i class="fa-regular fa-calendar-check"></i> <span data-i18n="feat-3">One-Tap Meeting Booking</span></div>
-                    <div class="feature-item"><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="feat-4">Google Maps Navigation</span></div>
-                </div>
-            </div>
-
-            <button id="left-share-btn" class="left-panel-btn"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="btn-share">Share My Profile</span></button>
-        </aside>
-
-        <main class="phone-wrapper">
-            
-            <div class="controls-header">
-                <button id="lang-toggle" class="lang-btn">عربي</button>
-                <button id="theme-toggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+        <div class="controls-header">
+            <button id="lang-toggle" class="lang-btn" aria-label="Switch Language">عربي</button>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+        
+        <section class="profile-hero">
+            <div class="avatar-container">
+                <img id="profile-display-img" src="Screenshot_20260526_003701_WhatsApp.jpg" alt="Simon D'Silva">
+                <div class="verified-badge"><i class="fa-solid fa-check"></i></div>
             </div>
             
-            <section class="profile-hero">
-                <div class="avatar-container">
-                    <div class="gold-ring-glow"></div>
-                    <img id="profile-display-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Simon D'Silva">
-                    <div class="verified-badge"><i class="fa-solid fa-check"></i></div>
+            <div id="status-badge" class="status-container">
+                <span id="status-dot" class="status-dot pulse"></span>
+                <span id="status-text">Checking Status...</span>
+            </div>
+
+            <h1 id="profile-name">Simon D'Silva</h1>
+            <p id="profile-title" class="profile-title">Real Estate Broker</p>
+            
+            <div class="meta-info-list">
+                <div class="meta-item"><i class="fa-solid fa-location-dot"></i> <span id="meta-location">Doha, Qatar</span></div>
+                <div class="meta-item"><i class="fa-solid fa-globe"></i> <span>www.orbithomesrealestate.com</span></div>
+                <div class="meta-item"><i class="fa-solid fa-building"></i> <span id="meta-firm">Orbit Homes Real Estate</span></div>
+            </div>
+        </section>
+
+        <section class="quick-actions-row">
+            <a href="tel:+97455550491" class="action-pill interaction-track" data-label="Phone Call Clicked">
+                <i class="fa-solid fa-phone"></i>
+                <span data-i18n="call">Call</span>
+            </a>
+            <a href="https://wa.me/97455550491" target="_blank" class="action-pill interaction-track" data-label="WhatsApp Clicked">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="mailto:simondsilva@gmail.com" class="action-pill interaction-track" data-label="Email Sent Trigger">
+                <i class="fa-regular fa-envelope"></i>
+                <span data-i18n="email">Email</span>
+            </a>
+            <a href="https://wa.me/97455550491?text=Hey%20can%20we%20schedule%20a%20meeting" target="_blank" class="action-pill interaction-track" data-label="Meeting WhatsApp Clicked">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span data-i18n="meeting">Meeting</span>
+            </a>
+            <a href="#" target="_blank" class="action-pill interaction-track" data-label="Office Location Mapped">
+                <i class="fa-solid fa-location-arrow"></i>
+                <span data-i18n="location_pill">Location</span>
+            </a>
+        </section>
+
+        <h2 id="heading-business" class="section-heading">Business</h2>
+        <nav class="link-list-group">
+            <a href="https://wa.me/97455550491" target="_blank" class="list-item interaction-track" data-label="Portfolio File Viewed">
+                <div class="list-item-left"><i class="fa-regular fa-folder-open"></i> <span data-i18n="portfolio">Portfolio</span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            
+            <button id="services-trigger" class="list-item interaction-track" data-label="Services Panel Expanded">
+                <div class="list-item-left"><i class="fa-solid fa-briefcase"></i> <span data-i18n="services">Services</span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            
+            <div id="services-panel" class="services-dropdown-panel">
+                <div class="services-panel-content">
+                    <div class="service-tag-item"><i class="fa-solid fa-sign-hanging"></i> <span data-i18n="svc-sales">Property Sales</span></div>
+                    <div class="service-tag-item"><i class="fa-solid fa-house-user"></i> <span data-i18n="svc-rentals">Villas & Apartments</span></div>
+                    <div class="service-tag-item"><i class="fa-solid fa-city"></i> <span data-i18n="svc-commercial">Commercial Leasing</span></div>
+                    <div class="service-tag-item"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="svc-management">Property Mgmt</span></div>
                 </div>
+            </div>
 
-                <h1 id="profile-name">Simon D'Silva</h1>
-                <p id="profile-title" class="profile-title">Real Estate Broker</p>
-                
-                <div class="meta-info-list">
-                    <div class="meta-item"><i class="fa-solid fa-location-dot"></i> <span id="meta-location">Doha, Qatar</span></div>
-                    <div class="meta-item"><i class="fa-solid fa-globe"></i> <span>www.orbithomesrealestate.com</span></div>
-                    <div class="meta-item"><i class="fa-solid fa-building"></i> <span id="meta-firm">Orbit Homes Real Estate</span></div>
-                </div>
-            </section>
+            <a href="#" class="list-item">
+                <div class="list-item-left"><i class="fa-regular fa-file-pdf"></i> <span data-i18n="company-profile">Company Profile (PDF)</span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </nav>
 
-            <section class="quick-actions-grid">
-                <a href="tel:+97455550491" class="action-square">
-                    <i class="fa-solid fa-phone"></i>
-                    <span data-i18n="call">Call</span>
-                </a>
-                <a href="https://wa.me/97455550491" target="_blank" class="action-square">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="mailto:simondsilva@gmail.com" class="action-square">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span data-i18n="email">Email</span>
-                </a>
-                <a href="https://wa.me/97455550491?text=Hey%20can%20we%20schedule%20a%20meeting" target="_blank" class="action-square">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <span data-i18n="meeting">Meeting</span>
-                </a>
-                <a href="#" target="_blank" class="action-square">
-                    <i class="fa-solid fa-location-arrow"></i>
-                    <span data-i18n="location_pill">Location</span>
-                </a>
-            </section>
+        <h2 id="heading-social" class="section-heading">Social Media</h2>
+        <section class="social-media-grid">
+            <a href="#" class="social-box instagram interaction-track" data-label="Instagram Visited"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+            <a href="#" class="social-box facebook interaction-track" data-label="Facebook Visited"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+            <a href="#" class="social-box tiktok interaction-track" data-label="TikTok Visited"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
+            <a href="#" class="social-box twitter interaction-track" data-label="Twitter X Visited"><i class="fa-brands fa-x-twitter"></i><span>X (Twitter)</span></a>
+            
+            <a href="#" class="social-box youtube interaction-track" data-label="YouTube Visited"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
+            <a href="#" class="social-box linkedin interaction-track" data-label="LinkedIn Profile Hit"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+            <a href="#" class="social-box telegram interaction-track" data-label="Telegram Channel Link"><i class="fa-brands fa-telegram"></i><span>Telegram</span></a>
+            <a href="#" class="social-box snapchat interaction-track" data-label="Snapchat Added"><i class="fa-brands fa-snapchat"></i><span>Snapchat</span></a>
+            
+            <a href="#" class="social-box discord interaction-track" data-label="Discord Joined"><i class="fa-brands fa-discord"></i><span>Discord</span></a>
+            <a href="#" class="social-box threads interaction-track" data-label="Threads Profile Opened"><i class="fa-brands fa-threads"></i><span>Threads</span></a>
+            <a href="#" class="social-box pinterest interaction-track" data-label="Pinterest Board Shared"><i class="fa-brands fa-pinterest-p"></i><span>Pinterest</span></a>
+            <a href="#" class="social-box reddit interaction-track" data-label="Reddit User Linked"><i class="fa-brands fa-reddit-alien"></i><span>Reddit</span></a>
+        </section>
 
-            <h2 id="heading-social" class="social-heading">Social Media</h2>
-            <section class="social-media-grid">
-                <a href="#" class="social-box instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-                <a href="#" class="social-box facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
-                <a href="#" class="social-box tiktok"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a>
-                <a href="#" class="social-box twitter"><i class="fa-brands fa-x-twitter"></i><span>X (Twitter)</span></a>
-                <a href="#" class="social-box youtube"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
-                <a href="#" class="social-box linkedin"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
-                <a href="#" class="social-box telegram"><i class="fa-brands fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="social-box snapchat"><i class="fa-brands fa-snapchat"></i><span>Snapchat</span></a>
-            </section>
-
-            <section class="phone-cta-container">
-                <button id="phone-share-btn" class="btn-phone-primary"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="btn-share">Share My Profile</span></button>
-                <button id="vcard-btn" class="btn-phone-outline"><i class="fa-regular fa-address-card"></i> <span data-i18n="btn-vcard">Download vCard</span></button>
-            </section>
-
-        </main>
+        <section class="cta-container">
+            <button id="share-profile-btn" class="btn-primary-blue"><i class="fa-solid fa-share-nodes"></i> <span data-i18n="btn-share">Share My Profile</span></button>
+            <button id="vcard-btn" class="btn-outline-dark"><i class="fa-regular fa-address-card"></i> <span id="vcard-btn-text" data-i18n="btn-vcard">Download vCard</span></button>
+        </section>
 
     </div>
 
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="vcard-popup-reminder">
+            <div class="vcard-popup-icon"><i class="fa-regular fa-address-book"></i></div>
+            <div id="vcard-reminder-text" class="vcard-popup-text">
+                Don't lose touch! Save Simon D'Silva directly to your contacts list.
+            </div>
+            <div class="modal-btn-group">
+                <button id="vcard-popup-download" class="vcard-popup-btn">Save Contact</button>
+                <button id="vcard-popup-close" class="vcard-popup-close-btn">Not Now</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        /* ==========================================================================
+           1. TRANSLATION DICTIONARY MAP & ENGLISH/ARABIC SWITCHER ENGINE
+           ========================================================================== */
         let currentLanguage = 'en';
+        
         const translations = {
             en: {
                 name: "Simon D'Silva",
                 title: "Real Estate Broker",
                 location: "Doha, Qatar",
                 firm: "Orbit Homes Real Estate",
-                business: "Services",
+                business: "Business",
                 social: "Social Media",
-                about_title: "About Me",
-                about_desc: "Mr. Simon is the professional real estate broker of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.",
-                features_title: "Features",
                 call: "Call",
                 email: "Email",
                 meeting: "Meeting",
                 location_pill: "Location",
-                portfolio: "Residential Sales",
-                services: "Luxury Properties & Villas",
-                "company-profile": "Commercial Leasing",
-                "company-profile-pdf": "Company Profile (PDF)",
-                "feat-1": "Save Contact Instantly",
-                "feat-2": "Open WhatsApp Chat",
-                "feat-3": "One-Tap Meeting Booking",
-                "feat-4": "Google Maps Navigation",
+                portfolio: "Portfolio",
+                services: "Services",
+                "svc-sales": "Property Sales",
+                "svc-rentals": "Villas & Apartments",
+                "svc-commercial": "Commercial Leasing",
+                "svc-management": "Property Mgmt",
+                "company-profile": "Company Profile (PDF)",
                 "btn-share": "Share My Profile",
                 "btn-vcard": "Download vCard",
-                "copied": "Copied!"
+                "vcard_reminder": "Don't lose touch! Save Simon D'Silva directly to your contacts list.",
+                "vcard_save": "Save Contact",
+                "vcard_cancel": "Not Now",
+                "copied": "Link Copied!",
+                "status-on": "Available (Qatar Time)",
+                "status-off": "🌙 Out of Office"
             },
             ar: {
                 name: "سايمون ديسيلفا",
                 title: "وسيط عقاري معتمد",
                 location: "الدوحة، قطر",
                 firm: "أوربيت هومز العقارية",
-                business: "الخدمات",
-                social: "منصات التواصل الاجتماعي",
-                about_title: "نبذة عني",
-                about_desc: "السيد سايمون هو الوكيل العقاري المحترف لشركة أوربيت هومز العقارية، حيث يساعد العملاء في العثور على العقارات الفاخرة والفرص الاستثمارية في جميع أنحاء قطر.",
-                features_title: "المميزات",
+                business: "الأعمال",
+                social: "مواقع التواصل",
                 call: "اتصال",
                 email: "إيميل",
                 meeting: "اجتماع",
                 location_pill: "الموقع",
-                portfolio: "مبيعات العقارات السكنية",
-                services: "العقارات والفيلات الفاخرة",
-                "company-profile": "تأجير العقارات التجارية",
-                "company-profile-pdf": "ملف الشركة (PDF)",
-                "feat-1": "حفظ جهة الاتصال فوراً",
-                "feat-2": "فتح محادثة واتساب",
-                "feat-3": "حجز موعد بضغطة واحدة",
-                "feat-4": "خرائط جوجل للتنقل",
+                portfolio: "المحفظة العقارية",
+                services: "الخدمات",
+                "svc-sales": "بيع العقارات",
+                "svc-rentals": "فلل وشقق سكنية",
+                "svc-commercial": "تأجير تجاري",
+                "svc-management": "إدارة العقارات",
+                "company-profile": "ملف الشركة (PDF)",
                 "btn-share": "مشاركة ملفي الشخصي",
                 "btn-vcard": "حفظ جهة الاتصال",
-                "copied": "تم النسخ!"
+                "vcard_reminder": "لا تفقد الاتصال! احفظ سايمون ديسيلفا مباشرة في قائمة جهات الاتصال الخاصة بك.",
+                "vcard_save": "حفظ جهة الاتصال",
+                "vcard_cancel": "ليس الآن",
+                "copied": "تم نسخ الرابط!",
+                "status-on": "متاح حالياً (توقيت قطر)",
+                "status-off": "🌙 خارج أوقات العمل"
             }
         };
 
         const langToggleBtn = document.getElementById('lang-toggle');
+
         function setLanguage(lang) {
             currentLanguage = lang;
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
             langToggleBtn.innerText = lang === 'en' ? 'عربي' : 'EN';
 
-            // DOM Translation injection updates
+            // Static translations mapping
             document.getElementById('profile-name').innerText = translations[lang].name;
             document.getElementById('profile-title').innerText = translations[lang].title;
             document.getElementById('meta-location').innerText = translations[lang].location;
             document.getElementById('meta-firm').innerText = translations[lang].firm;
+            document.getElementById('heading-business').innerText = translations[lang].business;
             document.getElementById('heading-social').innerText = translations[lang].social;
-            
-            // Left Panel elements translation safe-check
-            if(document.getElementById('panel-heading-about')) {
-                document.getElementById('panel-heading-about').innerText = translations[lang].about_title;
-                document.getElementById('panel-about-desc').innerText = translations[lang].about_desc;
-                document.getElementById('panel-heading-biz').innerText = translations[lang].business;
-                document.getElementById('panel-heading-feats').innerText = translations[lang].features_title;
-            }
+            document.getElementById('vcard-reminder-text').innerText = translations[lang]["vcard_reminder"];
+            document.getElementById('vcard-popup-download').innerText = translations[lang]["vcard_save"];
+            document.getElementById('vcard-popup-close').innerText = translations[lang]["vcard_cancel"];
 
+            // Attribute injection translate loops
             document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
+                const translationKey = element.getAttribute('data-i18n');
+                if (translations[lang][translationKey]) {
                     const icon = element.querySelector('i');
                     if (icon) {
                         element.innerHTML = '';
                         element.appendChild(icon);
-                        element.appendChild(document.createTextNode(' ' + translations[lang][key]));
+                        element.appendChild(document.createTextNode(' ' + translations[lang][translationKey]));
                     } else {
-                        element.innerText = translations[lang][key];
+                        element.innerText = translations[lang][translationKey];
                     }
                 }
             });
+
+            updateQatarStatus(); 
+            logStartupAnalytics('Language Changed', `Switched view language context to: ${lang}`);
         }
 
         langToggleBtn.addEventListener('click', () => {
             setLanguage(currentLanguage === 'en' ? 'ar' : 'en');
         });
 
+
+        /* ==========================================================================
+           2. QATAR LOCAL TIME ZONE (AST) ACTIVE STATUS ENGINE
+           ========================================================================== */
+        function updateQatarStatus() {
+            const dot = document.getElementById('status-dot');
+            const text = document.getElementById('status-text');
+            
+            const now = new Date();
+            const qatarTimeString = now.toLocaleString("en-US", {timeZone: "Asia/Qatar", hour: 'numeric', hour12: false});
+            const currentQatarHour = parseInt(qatarTimeString, 10);
+
+            if (currentQatarHour >= 8 && currentQatarHour < 18) {
+                dot.style.backgroundColor = "#4cd964";
+                dot.classList.add('pulse');
+                text.innerText = translations[currentLanguage]["status-on"];
+            } else {
+                dot.style.backgroundColor = "#ff3b30";
+                dot.classList.remove('pulse');
+                text.innerText = translations[currentLanguage]["status-off"];
+            }
+        }
+        updateQatarStatus();
+        setInterval(updateQatarStatus, 60000);
+
+
+        /* ==========================================================================
+           3. LIGHT / DARK THEME TOGGLE ENGINE
+           ========================================================================== */
         const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            let targetTheme = 'dark';
+            
+            if (currentTheme === 'dark') {
+                targetTheme = 'light';
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+            
             document.documentElement.setAttribute('data-theme', targetTheme);
-            themeToggleBtn.querySelector('i').className = targetTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+            logStartupAnalytics('Theme Toggled', `Switched layout presentation theme to: ${targetTheme}`);
         });
 
-        // Core Copy Functions share utilities
-        const shareAction = async (btnElement) => {
-            try {
-                await navigator.clipboard.writeText(window.location.href);
-                const originalText = btnElement.innerHTML;
-                btnElement.innerHTML = `<i class="fa-solid fa-check"></i> ${translations[currentLanguage].copied}`;
-                setTimeout(() => { btnElement.innerHTML = originalText; }, 2000);
-            } catch (err) {
-                alert('Profile link copied!');
-            }
-        };
 
-        document.getElementById('phone-share-btn').addEventListener('click', function() { shareAction(this); });
-        if(document.getElementById('left-share-btn')) {
-            document.getElementById('left-share-btn').addEventListener('click', function() { shareAction(this); });
+        /* ==========================================================================
+           4. NFC STARTUP ANALYTICS TRACKER HOOK (Consoles logs view events clearly)
+           ========================================================================== */
+        let hasVcardBeenDownloaded = false;
+
+        function logStartupAnalytics(actionName, secondaryMetadata) {
+            const hitPayload = {
+                event: actionName,
+                timestamp: new Date().toISOString(),
+                locationUrl: window.location.href,
+                details: secondaryMetadata
+            };
+            console.log(`%c[NFC STARTUP ANALYTICS LOG]:`, "color: #3897f1; font-weight: bold; padding: 4px;", hitPayload);
         }
+
+        logStartupAnalytics('Profile Page Discovered', 'User landed and viewed the digital profile dashboard.');
+
+        document.querySelectorAll('.interaction-track').forEach(element => {
+            element.addEventListener('click', () => {
+                const label = element.getAttribute('data-label') || element.innerText.trim();
+                logStartupAnalytics('Link Component Clicked', `User clicked link: ${label}`);
+            });
+        });
+
+
+        /* ==========================================================================
+           5. 15-SECOND TIMED VCARD POP-UP REMINDER CONTROLLER
+           ========================================================================== */
+        const modalOverlay = document.getElementById('modal-overlay');
+        const closePopupBtn = document.getElementById('vcard-popup-close');
+        
+        setTimeout(() => {
+            if (!hasVcardBeenDownloaded) {
+                modalOverlay.classList.add('visible');
+                logStartupAnalytics('vCard Popup Shown', '15-second centered contact collection modal appeared.');
+            }
+        }, 15000);
+
+        closePopupBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('visible');
+            logStartupAnalytics('vCard Popup Dismissed', 'User clicked Not Now to cancel contact save.');
+        });
+
+        document.getElementById('vcard-popup-download').addEventListener('click', () => {
+            modalOverlay.classList.remove('visible');
+            document.getElementById('vcard-btn').click(); 
+        });
+
+
+        /* ==========================================================================
+           6. CORE PROFILE INTERACTIONS (vCard Generation, Web Sharing & Accordion)
+           ========================================================================== */
+        const trigger = document.getElementById('services-trigger');
+        const panel = document.getElementById('services-panel');
+
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            trigger.classList.toggle('active');
+            if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+                panel.style.maxHeight = "0px";
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+
+        const shareBtn = document.getElementById('share-profile-btn');
+        shareBtn.addEventListener('click', async () => {
+            logStartupAnalytics('Share Button Tapped', 'User requested to generate and share profile link.');
+            const shareData = {
+                title: "Simon D'Silva - Digital Profile",
+                text: "Check out the professional digital profile of Simon D'Silva.",
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try { await navigator.share(shareData); } catch (err) {}
+            } else {
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    const originalText = shareBtn.innerHTML;
+                    shareBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${translations[currentLanguage].copied}`;
+                    setTimeout(() => { shareBtn.innerHTML = originalText; }, 2500);
+                } catch (err) { alert('URL Link copied to clipboard.'); }
+            }
+        });
+
+        async function triggerVcardDownload() {
+            hasVcardBeenDownloaded = true;
+            modalOverlay.classList.remove('visible'); 
+            logStartupAnalytics('vCard Download Started', 'User clicked and downloaded the vCard file.');
+            
+            const imageUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150';
+            let base64PhotoText = '';
+            
+            try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                base64PhotoText = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                    reader.readAsDataURL(blob);
+                });
+            } catch (e) {}
+
+            const vcardLines = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                "N:D'Silva;Simon;;;",
+                "FN:Simon D'Silva",
+                "ORG:Orbit Homes Real Estate",
+                "TITLE:Real Estate Broker",
+                "TEL;TYPE=CELL;TYPE=PREF:+97455550491",
+                "EMAIL;TYPE=PREF,INTERNET:simondsilva@gmail.com",
+                "URL:https://orbithomesrealestate.com"
+            ];
+            if (base64PhotoText) vcardLines.push("PHOTO;TYPE=JPEG;ENCODING=b:" + base64PhotoText);
+            vcardLines.push("END:VCARD");
+
+            const blobFile = new Blob([vcardLines.join("\r\n")], { type: 'text/vcard;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blobFile);
+            link.download = 'Simon_DSilva.vcf';
+            link.click();
+        }
+
+        document.getElementById('vcard-btn').addEventListener('click', triggerVcardDownload);
     </script>
 </body>
 </html>
