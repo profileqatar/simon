@@ -130,7 +130,6 @@
             background-size: cover;
         }
 
-        /* Fixed padding and border circle sizes */
         .avatar-container {
             position: relative;
             width: 96px;
@@ -139,13 +138,27 @@
             z-index: 2;
         }
 
+        /* FIXED: Added high-end pulsing glow animation to the golden ring */
         .avatar-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
             border: 2.5px solid #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+            animation: goldGlowPulse 2.5s infinite ease-in-out;
+        }
+
+        @keyframes goldGlowPulse {
+            0% { 
+                box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); 
+            }
+            50% { 
+                box-shadow: 0 0 22px rgba(212, 175, 55, 0.85), 
+                            0 0 30px rgba(212, 175, 55, 0.4); 
+            }
+            100% { 
+                box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); 
+            }
         }
 
         /* Verified Tick Badge Styling */
@@ -947,13 +960,11 @@
             }
         });
 
-        /* --- FIXED FIXED DOWNLOAD PROFILE IMAGE SCRIPT MECHANICS --- */
         async function triggerVcardDownload() {
             hasVcardBeenDownloaded = true;
             modalOverlay.classList.remove('visible'); 
             logStartupAnalytics('vCard Download Started', 'User clicked and downloaded the vCard file.');
             
-            // Uses your absolute repository route path for highest cross-platform mobile compatibility
             const imageUrl = 'https://profileqatar.github.io/simon/1781452425978.png';
             let base64PhotoText = '';
             
@@ -981,7 +992,6 @@
                 "URL:https://orbithomesrealestate.com"
             ];
             
-            // Checks if base64 transformation script completed successfully or injects the absolute url source fallback line
             if (base64PhotoText) {
                 vcardLines.push("PHOTO;TYPE=PNG;ENCODING=b:" + base64PhotoText);
             } else {
