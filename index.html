@@ -96,7 +96,7 @@
             color: var(--text-muted);
         }
 
-        /* Business Real Estate Nav Group */
+        /* Business Services Navigation list */
         .business-list {
             display: flex;
             flex-direction: column;
@@ -219,10 +219,10 @@
             margin-bottom: 24px;
         }
 
-        /* Upgraded Compact Golden Ring Frame Aura */
+        /* Tightened Compact Golden Ring Frame Aura */
         .avatar-container {
             position: relative;
-            width: 104px; /* Scaled down slightly to look tighter */
+            width: 104px; 
             height: 104px;
             margin-bottom: 16px;
             display: flex;
@@ -249,7 +249,7 @@
         }
 
         .avatar-container img {
-            width: 96px; /* Fits closer to the line track */
+            width: 96px; 
             height: 96px;
             object-fit: cover;
             border-radius: 50%;
@@ -322,6 +322,42 @@
         .action-square:hover { background: var(--bg-element-hover); transform: translateY(-2px); }
         .action-square i { font-size: 1.15rem; margin-bottom: 5px; }
         .action-square span { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+
+        /* --- LINK GROUP PANELS --- */
+        .link-list-group {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-element);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 28px;
+            overflow: hidden;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        [dir="rtl"] .list-item { text-align: right; }
+        .list-item:last-child { border-bottom: none; }
+        .list-item:hover { background: var(--bg-element-hover); }
+
+        .list-item-left { display: flex; align-items: center; gap: 14px; }
+        .list-item-left i { color: var(--text-muted); font-size: 1rem; width: 20px; text-align: center; }
+        .list-item .fa-chevron-right { font-size: 0.75rem; color: var(--text-muted); }
+        [dir="rtl"] .list-item .fa-chevron-right { transform: rotate(180deg); }
 
         /* --- PHONE SOCIAL MEDIA MATRIX GRID --- */
         .social-heading {
@@ -430,7 +466,7 @@
             </div>
 
             <div>
-                <h2 id="panel-heading-biz" class="panel-section-title">Our Services</h2>
+                <h2 id="panel-heading-biz" class="panel-section-title">Services</h2>
                 <div class="business-list">
                     <a href="https://wa.me/97455550491" target="_blank" class="business-row">
                         <div class="business-row-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="service-1">Residential Sales</span></div>
@@ -445,7 +481,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                     <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="service-4">Property Management</span></div>
+                        <div class="business-row-left"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="company-profile">Company Profile (PDF)</span></div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -510,6 +546,26 @@
                 </a>
             </section>
 
+            <h2 id="heading-business" class="social-heading" style="margin-bottom: 12px;">Services</h2>
+            <nav class="link-list-group">
+                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
+                    <div class="list-item-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="service-1">Residential Sales</span></div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
+                    <div class="list-item-left"><i class="fa-solid fa-city"></i> <span data-i18n="service-2">Luxury Properties & Villas</span></div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
+                    <div class="list-item-left"><i class="fa-solid fa-building"></i> <span data-i18n="service-3">Commercial Leasing</span></div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="list-item">
+                    <div class="list-item-left"><i class="fa-regular fa-file-pdf"></i> <span data-i18n="company-profile">Company Profile (PDF)</span></div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </nav>
+
             <h2 id="heading-social" class="social-heading">Social Media</h2>
             <section class="social-media-grid">
                 <a href="#" class="social-box instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
@@ -539,7 +595,7 @@
                 title: "Real Estate Broker",
                 location: "Doha, Qatar",
                 firm: "Orbit Homes Real Estate",
-                business: "Our Services",
+                business: "Services",
                 social: "Social Media",
                 about_title: "About Me",
                 about_desc: "Mr. Simon is the professional real estate agent of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.",
@@ -551,7 +607,7 @@
                 "service-1": "Residential Sales",
                 "service-2": "Luxury Properties & Villas",
                 "service-3": "Commercial Leasing",
-                "service-4": "Property Management",
+                "company-profile": "Company Profile (PDF)",
                 "feat-1": "Save Contact Instantly",
                 "feat-2": "Open WhatsApp Chat",
                 "feat-4": "Google Maps Navigation",
@@ -564,7 +620,7 @@
                 title: "وسيط عقاري المعتمد",
                 location: "الدوحة، قطر",
                 firm: "أوربيت هومز العقارية",
-                business: "خدماتنا العقارية",
+                business: "الخدمات",
                 social: "منصات التواصل الاجتماعي",
                 about_title: "نبذة عني",
                 about_desc: "السيد سايمون هو الوكيل العقاري المحترف لشركة أوربيت هومز العقارية، حيث يساعد العملاء في العثور على العقارات الفاخرة والفرص الاستثمارية في جميع أنحاء قطر.",
@@ -576,7 +632,7 @@
                 "service-1": "مبيعات العقارات السكنية",
                 "service-2": "العقارات والفيلات الفاخرة",
                 "service-3": "تأجير العقارات التجارية",
-                "service-4": "إدارة العقارات والممتلكات",
+                "company-profile": "ملف الشركة (PDF)",
                 "feat-1": "حفظ جهة الاتصال فوراً",
                 "feat-2": "فتح محادثة واتساب",
                 "feat-4": "خرائط جوجل للتنقل",
@@ -598,6 +654,7 @@
             document.getElementById('profile-title').innerText = translations[lang].title;
             document.getElementById('meta-location').innerText = translations[lang].location;
             document.getElementById('meta-firm').innerText = translations[lang].firm;
+            document.getElementById('heading-business').innerText = translations[lang].business;
             document.getElementById('heading-social').innerText = translations[lang].social;
             
             // Left Panel elements translation safe-check
