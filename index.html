@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon D'Silva - Orbit Homes Real Estate</title>
+    <title>Simon D'Silva - Premium Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* --- HIGH-END UI DESIGN SYSTEM VARIABLES --- */
@@ -96,7 +96,7 @@
             color: var(--text-muted);
         }
 
-        /* Business Services Navigation list */
+        /* Business Static Navigation list */
         .business-list {
             display: flex;
             flex-direction: column;
@@ -219,10 +219,10 @@
             margin-bottom: 24px;
         }
 
-        /* Tightened Compact Golden Ring Frame Aura */
+        /* Tightened Compact Luxury Frame Aura */
         .avatar-container {
             position: relative;
-            width: 104px; 
+            width: 104px;
             height: 104px;
             margin-bottom: 16px;
             display: flex;
@@ -249,7 +249,7 @@
         }
 
         .avatar-container img {
-            width: 96px; 
+            width: 96px;
             height: 96px;
             object-fit: cover;
             border-radius: 50%;
@@ -277,7 +277,7 @@
         [dir="rtl"] .verified-badge { right: auto; left: 4px; }
 
         .profile-hero h1 {
-            font-size: 1.55rem;
+            font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 4px;
         }
@@ -322,42 +322,6 @@
         .action-square:hover { background: var(--bg-element-hover); transform: translateY(-2px); }
         .action-square i { font-size: 1.15rem; margin-bottom: 5px; }
         .action-square span { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
-
-        /* --- LINK GROUP PANELS --- */
-        .link-list-group {
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-element);
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 28px;
-            overflow: hidden;
-        }
-
-        .list-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            background: transparent;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
-        }
-        [dir="rtl"] .list-item { text-align: right; }
-        .list-item:last-child { border-bottom: none; }
-        .list-item:hover { background: var(--bg-element-hover); }
-
-        .list-item-left { display: flex; align-items: center; gap: 14px; }
-        .list-item-left i { color: var(--text-muted); font-size: 1rem; width: 20px; text-align: center; }
-        .list-item .fa-chevron-right { font-size: 0.75rem; color: var(--text-muted); }
-        [dir="rtl"] .list-item .fa-chevron-right { transform: rotate(180deg); }
 
         /* --- PHONE SOCIAL MEDIA MATRIX GRID --- */
         .social-heading {
@@ -450,7 +414,7 @@
         @media (max-width: 420px) {
             body { padding: 0; background-color: var(--bg-card); }
             .dashboard-container { gap: 0; }
-            .left-info-panel { display: none; } 
+            .left-info-panel { display: none; }
             .phone-wrapper { border-radius: 0; border: none; min-height: 100vh; }
         }
     </style>
@@ -462,26 +426,26 @@
         <aside class="left-info-panel">
             <div>
                 <h2 id="panel-heading-about" class="panel-section-title">About Me</h2>
-                <p id="panel-about-desc" class="about-text">Mr. Simon is the professional real estate agent of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.</p>
+                <p id="panel-about-desc" class="about-text">Mr. Simon is the professional real estate broker of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.</p>
             </div>
 
             <div>
                 <h2 id="panel-heading-biz" class="panel-section-title">Services</h2>
                 <div class="business-list">
                     <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="service-1">Residential Sales</span></div>
+                        <div class="business-row-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="portfolio">Residential Sales</span></div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                     <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-city"></i> <span data-i18n="service-2">Luxury Properties & Villas</span></div>
+                        <div class="business-row-left"><i class="fa-solid fa-city"></i> <span data-i18n="services">Luxury Properties & Villas</span></div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                     <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-building"></i> <span data-i18n="service-3">Commercial Leasing</span></div>
+                        <div class="business-row-left"><i class="fa-solid fa-building"></i> <span data-i18n="company-profile">Commercial Leasing</span></div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
-                    <a href="https://wa.me/97455550491" target="_blank" class="business-row">
-                        <div class="business-row-left"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="company-profile">Company Profile (PDF)</span></div>
+                    <a href="#" class="business-row">
+                        <div class="business-row-left"><i class="fa-regular fa-file-pdf"></i> <span data-i18n="company-profile-pdf">Company Profile (PDF)</span></div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -492,6 +456,7 @@
                 <div class="features-stack">
                     <div class="feature-item"><i class="fa-regular fa-address-book"></i> <span data-i18n="feat-1">Save Contact Instantly</span></div>
                     <div class="feature-item"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="feat-2">Open WhatsApp Chat</span></div>
+                    <div class="feature-item"><i class="fa-regular fa-calendar-check"></i> <span data-i18n="feat-3">One-Tap Meeting Booking</span></div>
                     <div class="feature-item"><i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="feat-4">Google Maps Navigation</span></div>
                 </div>
             </div>
@@ -509,7 +474,7 @@
             <section class="profile-hero">
                 <div class="avatar-container">
                     <div class="gold-ring-glow"></div>
-                    <img id="profile-display-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Simon D'Silva">
+                    <img id="profile-display-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Simon D'Silva">
                     <div class="verified-badge"><i class="fa-solid fa-check"></i></div>
                 </div>
 
@@ -546,26 +511,6 @@
                 </a>
             </section>
 
-            <h2 id="heading-business" class="social-heading" style="margin-bottom: 12px;">Services</h2>
-            <nav class="link-list-group">
-                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
-                    <div class="list-item-left"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="service-1">Residential Sales</span></div>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
-                    <div class="list-item-left"><i class="fa-solid fa-city"></i> <span data-i18n="service-2">Luxury Properties & Villas</span></div>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="https://wa.me/97455550491" target="_blank" class="list-item">
-                    <div class="list-item-left"><i class="fa-solid fa-building"></i> <span data-i18n="service-3">Commercial Leasing</span></div>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="list-item">
-                    <div class="list-item-left"><i class="fa-regular fa-file-pdf"></i> <span data-i18n="company-profile">Company Profile (PDF)</span></div>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </nav>
-
             <h2 id="heading-social" class="social-heading">Social Media</h2>
             <section class="social-media-grid">
                 <a href="#" class="social-box instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
@@ -598,18 +543,19 @@
                 business: "Services",
                 social: "Social Media",
                 about_title: "About Me",
-                about_desc: "Mr. Simon is the professional real estate agent of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.",
+                about_desc: "Mr. Simon is the professional real estate broker of Orbit Homes Real Estate, helping clients find luxury properties and investment opportunities across Qatar.",
                 features_title: "Features",
                 call: "Call",
                 email: "Email",
                 meeting: "Meeting",
                 location_pill: "Location",
-                "service-1": "Residential Sales",
-                "service-2": "Luxury Properties & Villas",
-                "service-3": "Commercial Leasing",
-                "company-profile": "Company Profile (PDF)",
+                portfolio: "Residential Sales",
+                services: "Luxury Properties & Villas",
+                "company-profile": "Commercial Leasing",
+                "company-profile-pdf": "Company Profile (PDF)",
                 "feat-1": "Save Contact Instantly",
                 "feat-2": "Open WhatsApp Chat",
+                "feat-3": "One-Tap Meeting Booking",
                 "feat-4": "Google Maps Navigation",
                 "btn-share": "Share My Profile",
                 "btn-vcard": "Download vCard",
@@ -617,7 +563,7 @@
             },
             ar: {
                 name: "سايمون ديسيلفا",
-                title: "وسيط عقاري المعتمد",
+                title: "وسيط عقاري معتمد",
                 location: "الدوحة، قطر",
                 firm: "أوربيت هومز العقارية",
                 business: "الخدمات",
@@ -629,12 +575,13 @@
                 email: "إيميل",
                 meeting: "اجتماع",
                 location_pill: "الموقع",
-                "service-1": "مبيعات العقارات السكنية",
-                "service-2": "العقارات والفيلات الفاخرة",
-                "service-3": "تأجير العقارات التجارية",
-                "company-profile": "ملف الشركة (PDF)",
+                portfolio: "مبيعات العقارات السكنية",
+                services: "العقارات والفيلات الفاخرة",
+                "company-profile": "تأجير العقارات التجارية",
+                "company-profile-pdf": "ملف الشركة (PDF)",
                 "feat-1": "حفظ جهة الاتصال فوراً",
                 "feat-2": "فتح محادثة واتساب",
+                "feat-3": "حجز موعد بضغطة واحدة",
                 "feat-4": "خرائط جوجل للتنقل",
                 "btn-share": "مشاركة ملفي الشخصي",
                 "btn-vcard": "حفظ جهة الاتصال",
@@ -654,7 +601,6 @@
             document.getElementById('profile-title').innerText = translations[lang].title;
             document.getElementById('meta-location').innerText = translations[lang].location;
             document.getElementById('meta-firm').innerText = translations[lang].firm;
-            document.getElementById('heading-business').innerText = translations[lang].business;
             document.getElementById('heading-social').innerText = translations[lang].social;
             
             // Left Panel elements translation safe-check
@@ -692,7 +638,7 @@
             themeToggleBtn.querySelector('i').className = targetTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
         });
 
-        // Core Link Copy Utility
+        // Core Copy Functions share utilities
         const shareAction = async (btnElement) => {
             try {
                 await navigator.clipboard.writeText(window.location.href);
